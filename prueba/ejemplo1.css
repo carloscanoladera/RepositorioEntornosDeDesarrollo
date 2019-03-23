@@ -4,4 +4,5 @@ color: aqua;
 background:brown;
 font-size: 200%;
 text-align: center;
+text-anchor: inherit;
 }

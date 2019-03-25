@@ -1,0 +1,18 @@
+Stanford JavaScript Crypto Library, es una librería JavaScript que permitire encriptar mensajes de forma sencilla, segura, rápida y compatible con diferentes navegadores.
+
+Su funcionamiento es muy simple. Sólo hay que descargarse la librería y…
+
+-Para encriptar se utilizaría el siguiente código:
+
+sjcl.encrypt("password", "data")
+
+-Para desencriptar el mensaje, lo que habría que utilizar sería:
+
+sjcl.decrypt("password", "encrypted-data")
+
+Donde “password” es la cadena que se usará para el encriptado y que será necesario para su desencriptado.
+
+La librería utiliza el algoritmo AES en 128, 192 o 256 bits, la función hash SHA256, el código de autenticación HMAC, el fortalecedor de contraseña PBKDF2 y el MCP y los modos de encriptación autenticada OCB.
+
+
+

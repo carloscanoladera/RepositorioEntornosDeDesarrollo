@@ -1,0 +1,65 @@
+<html>
+<head>
+    <script type="text/javascript" src="cryptico.js"></script>
+<script language="Javascript" type="text/javascript">
+    var CPublic;
+    var CPriv;
+    var textCipher;
+    //Generacon de clave Publica y privada
+    function GenKey(texto){
+        var Bits=1024;
+        CPriv= cryptico.generateRSAKey(texto, Bits);
+        CPublic= cryptico.publicKeyString(CPriv);
+        return CPublic;
+        
+        
+    }
+    //Encriptar Mensaje
+    function Encript(Mensaje,Clave){
+        textCipher= cryptico.encrypt(Mensaje, Clave);
+        
+        return textCipher.cipher;
+    }
+    
+    //Descrifrar mensaje
+    function DesEncript(MenEnc){
+        
+        var Dec=cryptico.decrypt(MenEnc,CPriv);
+        
+        return Dec.plaintext;
+    }
+    </script>
+    </head>
+<body>
+    
+    <form>
+     <!--Mensaje ha encriptar-->
+        Mensaje: <input type="text" name="Mensaje" value=""><br><br>
+        
+        Clave publica<br>
+    <!--Caja Clave publica para encriptar-->
+        <textarea name="Clave" cols="80" rows="10"></textarea><br><br>
+    
+        <input name="encriptar" value="encriptar" type="button" onClick="document.forms[0].Encriptado.value = Encript(document.forms[0].Mensaje.value,document.forms[0].Clave.value) ">
+        
+        <input name="Desencriptar" value="desencriptar" type="button" onClick="document.forms[0].Encriptado.value = Encript(document.forms[0].Mensaje.value) ">
+        <br><br>
+        Mensaje encriptado<br>
+    <!--textarea para ver Mensaje Cifrado y Descifrar-->
+        <textarea  name="Encriptado" cols="80" rows="10"></textarea><br><br>
+        
+    <!--Generar Clave publica y privada-->
+        Palabra clave: <input type="text"name="Palabra" value=""><br><br>
+    <!--Textarea para obtener C.Publica-->
+        <textarea name="CPub" cols="80" rows="10"></textarea><br><br>
+        
+        <input name="GenClv" value="Generar Clave" type="button" onClick="document.forms[0].CPub.value = GenKey(document.forms[0].Palabra.value)">
+    <!--Enviar Clave Publica-->
+        <input name="enviar" value="enviar clave" type="button" onClick="document.forms[0].Clave.value = document.forms[0].CPub.value">
+        
+    
+    </form>
+    
+    </body>
+
+</html>
